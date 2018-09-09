@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-// import Header from '../Header/Header.js'
+import Header from '../Header/Header.js'
 // import FeelingView from '../FeelingView/FeelingView.js';
 // import UnderstandingView from '../UnderstandingView/UnderstandingView.js';
 // import SupportView from '../SupportView/SupportView.js';
@@ -15,8 +15,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Header />
-        <Route path="/feeling" component={FeelingView} />
+        <Header />
+        {/* <Route path="/feeling" component={FeelingView} />
         <Route path="/understanding" component={UnderstandingView} />
         <Route path="/support" component={SupportView} />
         <Route path="/comments" component={CommentsView} />

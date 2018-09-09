@@ -7,13 +7,16 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+const feedbackInput = '';
+
+const feedbackForm = (state = feedbackInput) => {
+    return state;
+}
+
 const storeInstance = createStore(
-    combineReducers(),
+    combineReducers({feedbackForm}),
     applyMiddleware(logger),
 );
-
-
-
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
