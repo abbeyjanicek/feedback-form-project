@@ -11,16 +11,14 @@ class CommentsView extends Component {
     }
 
     handleChange = (event) => {
+        console.log(event.target.value);
         this.setState({
             input: event.target.value,
         });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.setState({
-            input: '',
-        });
+    handleSubmit = () => {
+        console.log(this.state);
         console.log();
         axios({
             method: 'POST',
@@ -40,7 +38,7 @@ class CommentsView extends Component {
             <div className="feedbackContainer">
                 <h3>Would you like to leave any comments?</h3>
                 <div>
-                    <input type="text" value={this.state.input} onChange={this.handleChange} placeholder="enter your comments here." />
+                    <textarea rows="6" cols="50" value={this.state.input} onChange={this.handleChange}>Please enter comments here.</textarea>
                     <button className='nextBtn' onClick={this.handleSubmit}>SUBMIT</button>
                 </div>
             </div>

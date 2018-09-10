@@ -3,12 +3,31 @@ import axios from 'axios';
 
 class AdminView extends Component {
 
-    constructor() {
-        super();
-
+    constructor(props) {
+        super(props);
         this.state = {
             feedbackData: [],
         }
+    }
+
+    handleDeleteFeedback = (event) => {
+        let feedbackToRemoveId = this.props.feedback._id;
+        console.log(feedbackToRemoveId);
+        console.log(this.props.reduxState.feedbackForm);
+
+        const matchFeedback = feedback => feedback._id !== feedbackToRemoveId;
+        let newFeedbackData = this.props.reduxState.feedbackForm.feedbackInput.filter(matchFeedback);
+
+        console.log(newFeedbackData);
+
+        const updatedFeedback = {
+            feedback: newFeedbackData,
+        }
+        const action = {
+            type: 'UPDATE_FEEDBACK',
+            payload: updatedFeedback,
+        }
+        this.props.dispatch(action)
     }
 
 
@@ -46,14 +65,14 @@ class AdminView extends Component {
                         <th>Delete</th>
                     </thead>
                     <tbody>
-                        {this.state.feedbackData.map((feedback, i) => {
+                        {this.props.reduxState.feedbackForm.map((feedback, i) => {
                             return (
                                 <tr key={i}>
                                     <td>{feedback.feeling}</td>
                                     <td>{feedback.understanding}</td>
                                     <td>{feedback.support}</td>
                                     <td>{feedback.comments}</td>
-                                    <button>DELETE</button>
+                                    <button onClick={this.handleDeleteFeedback}>DELETE</button>
                                 </tr>
                             )
                         })}

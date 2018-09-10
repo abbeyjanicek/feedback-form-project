@@ -13,6 +13,7 @@ import AdminView from '../AdminView/AdminView.js';
 
 class App extends Component {
   render() {
+    
     return (
       <div className="App">
         <Router>

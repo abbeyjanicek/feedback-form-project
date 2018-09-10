@@ -16,21 +16,24 @@ const feedbackInput = {
 
 
 const feedbackForm = (state = feedbackInput, action) => {
-    if (action.type === 'ADD_FEELING') {
+    if (action.type === 'UPDATE_FEEDBACK') {
         const newInfo = action.payload;
-        return {...state, feeling: newInfo.feeling};
+        return {...state, type: newInfo.feedbackInput.feeling}
+    } else if (action.type === 'ADD_FEELING') {
+        const newInput = action.payload;
+        return { ...state, feeling: newInput.feeling };
     } else if (action.type === 'ADD_UNDERSTANDING') {
-        const newInfo = action.payload;
-        return {...state, understanding: newInfo.understanding};
+        const newInput = action.payload;
+        return { ...state, understanding: newInput.understanding };
     } else if (action.type === 'ADD_SUPPORT') {
-        const newInfo = action.payload;
-        return {...state, support: newInfo.support}
-    } 
+        const newInput = action.payload;
+        return { ...state, support: newInput.support }
+    }
     return state;
 }
 
 const storeInstance = createStore(
-    combineReducers({feedbackForm}),
+    combineReducers({ feedbackForm }),
     applyMiddleware(logger),
 );
 
