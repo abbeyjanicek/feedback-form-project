@@ -14,7 +14,7 @@ class CommentsView extends Component {
         console.log();
         axios({
             method: 'POST',
-            url: '/submission',
+            url: '/',
             data: this.props.reduxState.feedbackForm
         }).then((response) => {
                 console.log('Back from POST: ', response.data);
