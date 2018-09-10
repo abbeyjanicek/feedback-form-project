@@ -14,11 +14,18 @@ const feedbackInput = {
     comments: '',
 }
 
+
 const feedbackForm = (state = feedbackInput, action) => {
-    if (action.type === 'ADD_FEEDBACK') {
-        const feedback = action.payload;
-        return {...state, feedback }
-    }
+    if (action.type === 'ADD_FEELING') {
+        const newInfo = action.payload;
+        return {...state, feeling: newInfo.feeling};
+    } else if (action.type === 'ADD_UNDERSTANDING') {
+        const newInfo = action.payload;
+        return {...state, understanding: newInfo.understanding};
+    } else if (action.type === 'ADD_SUPPORT') {
+        const newInfo = action.payload;
+        return {...state, support: newInfo.support}
+    } 
     return state;
 }
 
