@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const results = [];
 
+//In theory, this router should send all of the data to the db. Because of the issue with state 
+//("cannot read property of undefined"), nothing gets sent to the server so nothing gets sent to the db.
 router.post('/', (req, res) => {
     const feedbackToAdd = req.body;
     console.log('in POST route', feedbackToAdd);
@@ -16,6 +18,9 @@ router.post('/', (req, res) => {
     });
 }); //end POST to db
 
+
+//In theory, this router should delete data from the db. Because of the issue with state 
+//("cannot read property of undefined"), nothing gets sent to the server so nothing gets sent to the db.
 router.delete('/:id', (req, res) => {
     let index = 0;
     for(const item of results) {
@@ -28,6 +33,8 @@ router.delete('/:id', (req, res) => {
     res.sendStatus(200);
 });
 
+//In theory, this router should get all of the data to the db. Because of the issue with state 
+//("cannot read property of undefined"), nothing gets sent to the server so nothing gets sent to the db.
 router.get('/', (req, res) => {
     res.send(results);
 });

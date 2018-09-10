@@ -18,6 +18,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
+            {/* These are the routes for each view. */}
             <Header />
             <Route exact path="/" component={FeelingView} />
             <Route path="/understanding" component={UnderstandingView} />

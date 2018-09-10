@@ -7,18 +7,19 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const feedbackInput = {
+//This is the array that includes each input to send to the db.
+const feedbackInput = [{
     feeling: '',
     understanding: '',
     support: '',
     comments: '',
-}
+}]
 
-
+//This is the reducer.
 const feedbackForm = (state = feedbackInput, action) => {
     if (action.type === 'UPDATE_FEEDBACK') {
-        const newInfo = action.payload;
-        return {...state, type: newInfo.feedbackInput.feeling}
+        const newInput = action.payload;
+        return {...state, type: newInput.feedbackInput}
     } else if (action.type === 'ADD_FEELING') {
         const newInput = action.payload;
         return { ...state, feeling: newInput.feeling };

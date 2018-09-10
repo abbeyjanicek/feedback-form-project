@@ -9,17 +9,20 @@ class UnderstandingView extends Component {
         }
     }
 
+    //This function reads the input.
     handleChange = (event) => {
         console.log(event.target.value);
         this.setState({
             input: event.target.value,
         });
     }
+    //This function adds the input of "understanding" to the array. However, the input continues to come up "undefined" 
+    //rather than what is entered. The logger shows the correct input but it is undefined in the array.
     handleNext = (event) => {
         console.log(this.state);
         const action = { type: 'ADD_UNDERSTANDING', payload: this.state.input }
         this.props.dispatch(action);
-
+    //This navigates to the next page of the form.
         this.props.history.push('/support');
     }
 
