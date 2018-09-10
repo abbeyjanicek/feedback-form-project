@@ -44,4 +44,7 @@ class FeelingView extends Component {
 const mapReduxStoreToProps = (reduxStore) => ({
     reduxStore
 })
+
+//let connectionToRedux = connect();
+//
 export default connect(mapReduxStoreToProps)(FeelingView);
